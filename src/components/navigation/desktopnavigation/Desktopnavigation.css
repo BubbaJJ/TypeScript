@@ -2,8 +2,19 @@
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     background-color: navy;
+    padding: 2rem;
+    margin:20px;
 }
 
 .navigationIcon{
     width: 90px;
+}
+
+span {
+    font-weight: bold;
+    margin: 10px;
+}
+
+span.hover {
+    cursor: pointer;
 }
