@@ -8,6 +8,16 @@
 
 .navigationIcon{
     width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.signInButton{
+    grid-column: 15/16;
+}
+
+.profile{
+    grid-column: 15/16;
 }
 
 span {
