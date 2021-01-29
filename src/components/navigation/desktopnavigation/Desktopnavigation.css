@@ -2,8 +2,6 @@
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     background-color: navy;
-    padding: 2rem;
-    margin:20px;
 }
 
 .navigationIcon{
@@ -12,19 +10,21 @@
     border-radius: 50%;
 }
 
-.signInButton{
-    grid-column: 15/16;
-}
-
+.signInButton,
 .profile{
     grid-column: 15/16;
 }
 
-span {
-    font-weight: bold;
-    margin: 10px;
+.signInButton:hover{
+    grid-column: 15/16;
+    cursor: pointer;
+    color: white;
+    font-weight: 1000;
+    font-family: 'roboto', sans-serif;
+    padding: 5%;
 }
 
-span.hover {
-    cursor: pointer;
+.desktopNavigationTabs{
+    grid-column: 7/9;
+    align-items: center;
 }

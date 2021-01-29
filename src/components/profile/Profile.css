@@ -6,16 +6,3 @@
 .profileWrapper:hover .profileDropdown {
     display: block;
 }
-
-.profileDropdown{
-    display: none;
-    position: absolute;
-    background-color: black;
-}
-
-.profileDropdown span{
-    display: block;
-    cursor: pointer;
-    padding: 2px;
-    color: aqua;
-}
