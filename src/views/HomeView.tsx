@@ -19,8 +19,10 @@ export const HomeView = () => {
   return (
     <div className="body">
       <h1>{number}</h1>
-      <button onClick={() => setNumber(number + 1)}>Incrementation</button>
-      <button disabled={number < 2} onClick={() => setNumber(number - 1)}>Decrementation</button>
+      <button onClick={() => setNumber(number + 1)}>Incrementation</button><br />
+      <button disabled={number < 2} onClick={() => setNumber(number - 1)}>Decrementation</button><br />
+      <button disabled={number === 0} onClick={() => setNumber(0)}>Reset</button><br />
+      <button disabled={number != 3} onClick={() => alert('3 is the magic number!')}>Magic!</button>
     </div>
   );
 };
