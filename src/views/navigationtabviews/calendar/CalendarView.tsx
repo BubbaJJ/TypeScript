@@ -1,5 +1,7 @@
 import React from "react";
 
 export const CalendarView = () => {
-  return <div></div>;
+  return <div>
+    Calender coming...
+  </div>;
 };

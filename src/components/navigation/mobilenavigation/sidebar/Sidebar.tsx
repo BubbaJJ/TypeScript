@@ -18,7 +18,7 @@ export const Sidebar = (props: { sidebarIsOpen: boolean, sidebarHandler: Functio
                 <li onClick={() => handleRedirect(RoutingPath.homeView)}><io5.IoHome />Home</li>
                 <io5.IoCloseSharp /><li onClick={() => props.sidebarHandler(false)}>Close!</li>
                 <io5.IoImages /><li>Images</li>
-                <io5.IoCalendarSharp /><li>Dates</li>
+                <io5.IoCalendarSharp /><li onClick={() => handleRedirect(RoutingPath.calendarView)}>Calendar</li>
             </ul>
         </div>
     )

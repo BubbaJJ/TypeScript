@@ -1,27 +1,30 @@
 .desktopNavigationWrapper{
     display: grid;
     grid-template-columns: repeat(20, 1fr);
-    background-color: navy;
+    background-color: rgb(107, 107, 107);
+    align-items: center;
+    padding: 10px;
 }
 
 .navigationIcon{
     width: 90px;
-    height: 90px;
     border-radius: 50%;
+	padding: 2%;
 }
 
 .signInButton,
 .profile{
-    grid-column: 15/16;
+    grid-column: 18/20;
+    cursor: pointer;
+	color: black;
+	font-weight: 1000;
+	font-family: 'Roboto', sans-serif;
+    padding: 5px;
 }
 
 .signInButton:hover{
-    grid-column: 15/16;
-    cursor: pointer;
-    color: white;
-    font-weight: 1000;
-    font-family: 'roboto', sans-serif;
-    padding: 5%;
+    font-size: 1.1rem;
+    transition: 0.3s;
 }
 
 .desktopNavigationTabs{

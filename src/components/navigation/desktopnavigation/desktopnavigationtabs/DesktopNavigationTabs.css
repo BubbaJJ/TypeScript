@@ -10,7 +10,7 @@
     font-family: 'Roboto', sans-serif;
     padding: 5px;
     transition: 0.2s;
-
+    align-self: center;
 }
 
 .liTabs:hover{

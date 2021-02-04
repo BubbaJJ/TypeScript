@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../shared/css/Global.css'
 
 export const HomeView = () => {
   const [number, setNumber] = useState(0);
@@ -16,9 +17,10 @@ export const HomeView = () => {
   ); */
 
   return (
-    <div>
+    <div className="body">
       <h1>{number}</h1>
       <button onClick={() => setNumber(number + 1)}>Incrementation</button>
+      <button disabled={number < 2} onClick={() => setNumber(number - 1)}>Decrementation</button>
     </div>
   );
 };

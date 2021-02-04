@@ -17,17 +17,17 @@ export const Desktopnavigation = () => {
         <Profile />
       </div>
     ) : (
-      <span
-        className="signInButton"
-        onClick={() => history.push(RoutingPath.signInView)}
-      >
-        Sign in
-      </span>
-    );
+        <span
+          className="signInButton"
+          onClick={() => history.push(RoutingPath.signInView)}
+        >
+          Sign in
+        </span>
+      );
   };
 
   return (
-    <div className="DesktopnavigationWrapper">
+    <div className="desktopNavigationWrapper">
       <img
         className="navigationIcon"
         src={Logotype}
@@ -37,7 +37,7 @@ export const Desktopnavigation = () => {
       <div className="desktopNavigationTabs">
         <DesktopNavigationTabs />
       </div>
-      <span>{UserLoggedIn()}</span>
+      {UserLoggedIn()}
     </div>
   );
 };

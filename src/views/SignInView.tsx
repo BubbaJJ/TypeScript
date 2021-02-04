@@ -3,6 +3,7 @@ import { loginCredentials } from "../shared/interface/Interface";
 import { useHistory } from "react-router-dom";
 import RoutingPath from "../routes/RoutingPath";
 import { UserContext } from "../shared/provider/UserProvider";
+import '../shared/css/Global.css'
 
 export const SignInView = () => {
   const history = useHistory();
@@ -19,7 +20,7 @@ export const SignInView = () => {
   };
 
   return (
-    <div>
+    <div className="body">
       <form>
         <input
           type="text"
