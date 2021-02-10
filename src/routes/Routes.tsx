@@ -6,6 +6,7 @@ import { SignInView } from "../views/SignInView";
 import { ConcertsView } from "../views/navigationtabviews/concerts/ConcertsView";
 import { CalendarView } from "../views/navigationtabviews/calendar/CalendarView";
 import { ArtistsView } from "../views/navigationtabviews/artists/ArtistsView";
+import { EditProfileView } from "../views/navigationtabviews/profile/EditProfileView";
 import { UserContext } from "../shared/provider/UserProvider";
 import { useEffect, useContext } from "react";
 
@@ -13,6 +14,10 @@ import { useEffect, useContext } from "react";
 export const Routes = (props: { children: React.ReactChild }) => {
   const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext);
   const { children } = props;
+
+  const authenticationRequired = (authView: React.FC, notAuthView: React.FC) => {
+    return authenticatedUser ? authView : notAuthView;
+  }
 
   useEffect(() => {
     setAuthenticatedUser({ username: localStorage.getItem("user") });
@@ -28,6 +33,7 @@ export const Routes = (props: { children: React.ReactChild }) => {
         <Route exact path={RoutingPath.concertsView} component={ConcertsView} />
         <Route exact path={RoutingPath.calendarView} component={CalendarView} />
         <Route exact path={RoutingPath.artistsview} component={ArtistsView} />
+        <Route exact path={RoutingPath.editprofileview} component={authenticationRequired(EditProfileView, HomeView)} />
 
         <Route component={HomeView} />
       </Switch>
