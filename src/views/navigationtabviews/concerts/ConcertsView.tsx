@@ -1,5 +1,6 @@
 import PokemonService from '../../../shared/api/service/PokemonService';
 import { useEffect, useState } from "react";
+import '../../../shared/css/Global.css'
 
 export const ConcertsView = () => {
 
@@ -12,22 +13,25 @@ export const ConcertsView = () => {
     getPokemonsForList()
   }, [])
 
+  useEffect(() => {
+    getPokemonsAPI()
+  }, [search])
+
+  const handleChange = (event: any) => {
+    setSearch(event)
+  }
+
   const getPokemonsForList = async () => {
     const { data } = await PokemonService.getPokemonsList()
     setListItems(data.results)
     console.log(listItems)
   }
 
-  const handleChange = (event: any) => {
-    setSearch(event)
-    getPokemonsAPI()
-  }
-
   const getPokemonsAPI = async () => {
     try {
       const data = await PokemonService.getPokemons(search)
       setPokemon(data)
-      setError(false)
+      setError(error)
       console.log(data)
     }
     catch (error) {
@@ -36,21 +40,24 @@ export const ConcertsView = () => {
   }
 
   const displayPokemon = () => {
-    if (!error) {
+    if (error || search === "") {
       return <div>
-        {/* <h1>Name: {pokemon.data.species.name}</h1>
-        <h1>Weight: {pokemon.data.weight}</h1>
-        <img src={pokemon.data.sprites.front_default} /> */}
+        <h1>No pokemon selected.</h1>
       </div>
-    }
-    else {
+    } else {
       return <div>
-        <h1>No pokemon found.</h1>
+        <h1 style={{ textTransform: 'capitalize' }}>Name: {pokemon.data?.species?.name}</h1>
+        <h1>Pokedex #: {pokemon.data?.id}</h1>
+        <h1 style={{ textTransform: 'capitalize' }}>Type(s): {pokemon.data?.types[0]?.type?.name} / {pokemon.data?.types[1]?.type?.name}</h1>
+        <h1>Attack: {pokemon.data?.stats[1]?.base_stat}</h1>
+        <h1>Defense: {pokemon.data?.stats[2]?.base_stat}</h1>
+        <h1>Hp: {pokemon.data?.stats[0]?.base_stat}</h1>
+        <img src={pokemon.data?.sprites?.front_default} alt={"Not found."} />
       </div>
     }
   }
 
-  return <div>
+  return <div className="body">
     <select>
       {listItems
         .sort((a: any, b: any) => a.name > b.name)
