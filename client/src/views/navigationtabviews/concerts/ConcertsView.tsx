@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import PokemonService from '../../../shared/api/service/PokemonService';
 import { useEffect, useState } from "react";
 import '../../../shared/css/Global.css'
@@ -48,10 +49,10 @@ export const ConcertsView = () => {
       return <div>
         <h1 style={{ textTransform: 'capitalize' }}>Name: {pokemon.data?.species?.name}</h1>
         <h1>Pokedex #: {pokemon.data?.id}</h1>
-        <h1 style={{ textTransform: 'capitalize' }}>Type(s): {pokemon.data?.types[0]?.type?.name} / {pokemon.data?.types[1]?.type?.name}</h1>
-        <h1>Attack: {pokemon.data?.stats[1]?.base_stat}</h1>
+        {/*<h1 style={{ textTransform: 'capitalize' }}>Type(s): {pokemon.data?.types[0]?.type?.name} / {pokemon.data?.types[1]?.type?.name}</h1>
+        <h1>Attack: {pokemon.data?.stats[1]?.base_stat}</h1>}
         <h1>Defense: {pokemon.data?.stats[2]?.base_stat}</h1>
-        <h1>Hp: {pokemon.data?.stats[0]?.base_stat}</h1>
+    <h1>Hp: {pokemon.data?.stats[0]?.base_stat}</h1>*/}
         <img src={pokemon.data?.sprites?.front_default} alt={"Not found."} />
       </div>
     }
