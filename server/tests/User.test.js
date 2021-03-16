@@ -8,6 +8,7 @@ Chai.should()
 Chai.use(ChaiHTTP)
 
 const randomString = Math.random().toString(36).substring(7)
+var newUser = ""
 
 const testingNonExistingRoute = () => {
     test('HTTP Call against a route that does not exist in the API', done => {
@@ -58,8 +59,38 @@ const updateUser = () => {
     })
 }
 
+const createUser = () => {
+    test('Should create a user in the database', done => {
+        Chai.request(application)
+            .post('/user')
+            .send({ username: 'TestUser', password: 'TestPassword', age: 22 })
+            .end((req, res) => {
+                // Should return status 201 to show that user has been created
+                res.should.have.a.status(StatusCode.CREATED)
+                res.body.should.be.a('object')
+                res.body.should.have.property('username').eq('TestUser')
+                // set newUser to created Id for usage in deleteUser
+                newUser = res.body._id
+                done()
+            })
+    })
+}
+
+const deleteUser = () => {
+    test('Should deleta a user in the database', done => {
+        Chai.request(application)
+            .delete(`/user/${newUser}`)
+            .end((req, res) => {
+                res.should.have.a.status(StatusCode.OK)
+                done()
+            })
+    })
+}
+
 describe('TESTING THE API', () => {
     testingNonExistingRoute()
     getAllUsers()
     updateUser()
+    createUser()
+    deleteUser()
 })
