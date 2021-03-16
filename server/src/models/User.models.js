@@ -12,14 +12,14 @@ const userSchema = Schema({
         type: Number,
         min: [18, 'Too young, Kiddo'],
         max: [65, 'Come on now, Oldie...'],
-        required: false
+        required: true
     },
     password: {
         type: String,
-        required: false,
+        required: true,
         minlength: 6
     }
-}, {timestamps: true})
+}, {timestamps: true, versionKey: false})
 
 const userModel = model('user', userSchema)
 export default userModel

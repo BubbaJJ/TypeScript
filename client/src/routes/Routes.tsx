@@ -24,7 +24,7 @@ export const Routes = (props: { children: React.ReactChild }) => {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="TypeScript">
       {children}
       <Switch>
         <Route exact path={RoutingPath.homeView} component={HomeView} />
